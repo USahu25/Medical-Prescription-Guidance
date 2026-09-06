@@ -1,4 +1,3 @@
-```
 # AI Medical Prescription Guidance System
 
 A Retrieval-Augmented Generation (RAG) based healthcare assistant that provides context-aware medical information and prescription guidance through an interactive chatbot interface.
@@ -62,7 +61,7 @@ The system follows a Retrieval-Augmented Generation architecture:
                              |
                              v
                     User / Chatbot UI
-````
+```
 
 ## How It Works
 
