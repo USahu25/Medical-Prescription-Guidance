@@ -1,157 +1,261 @@
-# 🩺 AI Medical Chatbot
+Absolutely. Since this is going on your GitHub and potentially being shown to recruiters, I’d make it **professional, clean, and technically focused**, without emojis.
 
-> An intelligent, responsive medical assistant built with **Gradio**, **LangChain**, and **RAG (Retrieval-Augmented Generation)** — featuring a beautiful, modern UI inspired by healthcare themes.
+Based on the project description supported by your project/resume materials, the project is a **RAG-based healthcare assistant using LangChain, ChromaDB, Gradio, semantic retrieval, and medical-document embeddings**. 
 
----
+Paste the following directly into your `README.md`:
 
-## 🌟 Overview
+````markdown
+# AI Medical Prescription Guidance System
 
-The **AI Medical Chatbot** helps users with **symptom guidance**, **medicine lookup**, **first aid advice**, and **stock availability** queries.
-It uses **Retrieval-Augmented Generation (RAG)** to provide context-aware, reliable medical answers while maintaining an elegant and modern conversational interface.
+A Retrieval-Augmented Generation (RAG) based healthcare assistant that provides context-aware medical information and prescription guidance through an interactive chatbot interface.
 
-This chatbot seamlessly blends **intelligence** with **aesthetic design**, ensuring a pleasant, informative user experience.
+## Overview
 
----
+The AI Medical Prescription Guidance System is designed to assist users in retrieving relevant healthcare information from medical documents.
 
-## 🎨 UI Design Highlights
+The system uses a Retrieval-Augmented Generation (RAG) approach to retrieve relevant information from a medical knowledge base and provide context-aware responses. Instead of relying only on the language model's internal knowledge, the application uses document retrieval and semantic similarity to ground its responses in the available medical information.
 
-✨ **Modern Gradient UI** – Inspired by [Dribbble AI chatbot designs](https://dribbble.com/shots/25640525-Mobile-AI-Chatbot), featuring soft pink gradients (`#FFE5EC → #FB6F92`).
-🧠 **Context Awareness** – Displays the retrieved medical database context before giving the AI response.
-💬 **Animated Chat Flow** – Smooth transitions, emojis, and hover effects for an engaging chat experience.
-🌙 **Warm, Approachable Design** – Friendly palette that remains professional, with no stark white backgrounds.
+The application provides an interactive interface using Gradio, making it easy for users to enter healthcare-related queries and receive relevant information.
 
-### 🎨 Color Palette Used
+## Key Features
 
-```
-#FFE5EC | #FFC2D1 | #FFB3C6 | #FF8FAB | #FB6F92
-```
+- RAG-based medical information retrieval
+- Semantic search over medical documents
+- Context-aware healthcare responses
+- Medical document embeddings for efficient retrieval
+- Vector database using ChromaDB
+- LangChain-based retrieval pipeline
+- Interactive chatbot interface using Gradio
+- Support for healthcare information and first-aid guidance
+- Local knowledge-base management
+- Stock management support for medical-shop related information
 
----
+## System Architecture
 
-## ⚙️ Key Features
+The application follows a Retrieval-Augmented Generation pipeline:
 
-* 🧠 **RAG-based Question Answering** for accurate and contextual responses
-* 💬 **Interactive Gradio Interface** with modern animations and gradient backgrounds
-* 🩹 **First Aid and Medicine Guidance**
-* 📦 **Medicine Stock & Dosage Information**
-* 🔒 **Safe and Informative Responses** (non-diagnostic medical guidance)
-* 🎨 **Fully Customizable Theme** powered by CSS and Coolors Palette
+```text
+User Query
+    |
+    v
+Query Processing
+    |
+    v
+Semantic Search
+    |
+    v
+ChromaDB Vector Database
+    |
+    v
+Relevant Medical Documents
+    |
+    v
+RAG / LangChain Pipeline
+    |
+    v
+Context-Aware Response
+    |
+    v
+Gradio Chatbot Interface
+````
 
----
+## How It Works
 
-## 🏗️ Project Structure
+1. Medical documents are collected and processed.
+2. The documents are converted into vector embeddings.
+3. The embeddings are stored in a ChromaDB vector database.
+4. The user enters a healthcare-related query through the Gradio interface.
+5. The query is converted into an embedding.
+6. ChromaDB performs similarity-based retrieval to identify relevant information.
+7. The retrieved information is passed through the RAG pipeline.
+8. The system generates a context-aware response for the user.
 
-```
-📂 AI-Medical-Chatbot/
+## Project Structure
+
+```text
+Medical-Prescription-Guidance/
 │
-├── app.py                        # Core backend logic – RAG chain and embeddings  
-├── gradio_medical_chatbot.py     # Gradio UI with animations and CSS  
-├── requirements.txt              # Dependencies list  
-├── data/                         # Medical dataset (CSV or JSON)  
-└── README.md                     # Project documentation (this file)  
+├── app.py
+├── gradio_medical_chatbot.py
+├── ingest.py
+├── add_stock.py
+├── test_db.py
+│
+├── data/
+│   └── Medical datasets and knowledge-base files
+│
+├── requirements.txt
+├── README.md
+└── Lab Poject Document.pdf
 ```
 
----
+## Technologies Used
 
-## 📥 Datasets Used
+| Technology | Purpose                                      |
+| ---------- | -------------------------------------------- |
+| Python     | Core programming language                    |
+| LangChain  | RAG and document retrieval pipeline          |
+| ChromaDB   | Vector database and similarity search        |
+| Gradio     | Interactive chatbot interface                |
+| Embeddings | Semantic representation of medical documents |
+| Git        | Version control                              |
+| GitHub     | Source code management                       |
 
-1. **Medicine Dataset** – from Kaggle: [Medicine Dataset – Kaggle](https://www.kaggle.com/datasets/ujjwalaggarwal402/medicine-dataset)
-   A comprehensive synthetic dataset of medicines containing 50,000 unique entries. ([Kaggle][1])
+## Installation
 
-2. **Your custom medical database** – stored in `data/`, used for retrieval context in the RAG chain.
+### Prerequisites
 
----
+Make sure the following are installed:
 
-## 🚀 Getting Started
+* Python 3.9 or later
+* Git
+* pip
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ai-medical-chatbot.git  
-cd ai-medical-chatbot
+git clone https://github.com/USahu25/Medical-Prescription-Guidance.git
+cd Medical-Prescription-Guidance
 ```
 
-### 2️⃣ Install Dependencies
+### Create a Virtual Environment
+
+Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+Linux/macOS:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Run the Chatbot
+## Running the Application
+
+Run the Gradio chatbot:
 
 ```bash
 python gradio_medical_chatbot.py
 ```
 
-Your chatbot will launch locally (or use `share=True` for a public link).
+The application will launch the Gradio interface and provide a local URL that can be opened in a web browser.
 
----
+## Data and Knowledge Base
 
-## 🧩 Technologies Used
+The system uses medical information stored in the project's data directory.
 
-| Component      | Technology                       |
-| -------------- | -------------------------------- |
-| 🧠 LLM Backend | LangChain + Ollama / OpenAI      |
-| 💬 Frontend    | Gradio (custom CSS + animations) |
-| 🗂️ Database   | Chroma Vector Store              |
-| ⚡ Embeddings   | OllamaEmbeddings                 |
-| 🧰 Language    | Python 3.10+                     |
+The documents are processed and converted into embeddings before being stored in ChromaDB. This allows the system to perform semantic similarity searches when a user submits a query.
 
----
+The ingestion process can be performed using:
 
-## 💬 Example Interaction
-
-```
-🧠 Context (medical database summary):
-Medicine Name: Burnol
-Generic Name: Aminacrine Hydrochloride
-Use Case: Treatment of minor burns and cuts
-Dosage Form: Ointment
-Stock: 18
-
-💬 Question:
-What should I do for a mild burn?
-
-✅ Helpful Answer:
-Clean the area gently with cool water, apply Burnol or any soothing burn ointment,
-and cover it with sterile gauze. If the burn covers a large area or blisters form,
-consult a healthcare professional.
+```bash
+python ingest.py
 ```
 
----
+## Database and Stock Management
 
-## 📸 UI Preview
+The project also contains utilities for managing information related to the medical-shop knowledge base.
 
-*(Insert screenshot here, e.g. `assets/ui_preview.png`)*
+The `add_stock.py` file can be used for adding or updating stock-related information.
 
-🔗 **Live Demo:** [https://your-gradio-link.gradio.live](https://your-gradio-link.gradio.live)
+The `test_db.py` file can be used to test database retrieval and verify that relevant information can be retrieved from the knowledge base.
 
----
+## Example Interaction
 
-## 📜 Disclaimer
+### User Query
 
-> This chatbot is intended for **educational and informational purposes only**.
-> It does **not** provide a medical diagnosis or replace professional medical advice.
-> Always consult a licensed healthcare provider for medical concerns.
+```text
+What should I do for a minor cut?
+```
 
----
+### System Response
 
-## 🤝 Contributors
+The system retrieves relevant first-aid information from the medical knowledge base and generates a context-aware response through the RAG pipeline.
 
-* 👩‍💻 **Sahithi,Tanmayi** — Developer & Designer
-* 🤖 **AI Assistant** — Backend & UI Design Support
+## RAG Pipeline
 
----
+The core workflow can be summarized as:
 
-## ❤️ Acknowledgements
+```text
+Medical Documents
+       |
+       v
+Document Processing
+       |
+       v
+Text Embeddings
+       |
+       v
+ChromaDB
+       |
+       v
+Semantic Retrieval
+       |
+       v
+Relevant Context
+       |
+       v
+LangChain RAG Pipeline
+       |
+       v
+Generated Response
+```
 
-* [Gradio](https://gradio.app/)
-* [LangChain](https://www.langchain.com/)
-* [Coolors Palette Generator](https://coolors.co/)
-* [Dribbble UI Inspiration](https://dribbble.com/shots/25640525-Mobile-AI-Chatbot)
-* [Medicine Dataset on Kaggle](https://www.kaggle.com/datasets/ujjwalaggarwal402/medicine-dataset)
+## Important Safety Disclaimer
 
----
-> 🩷 “Empowering healthcare awareness through AI — beautifully and responsibly.”
----
+This project is intended for educational and informational purposes only.
+
+It is not a replacement for a qualified doctor, pharmacist, or other healthcare professional. The information provided by the system should not be considered a medical diagnosis or a substitute for professional medical advice.
+
+Users should consult a qualified healthcare professional for diagnosis, prescription decisions, dosage information, emergencies, or serious medical conditions.
+
+The system should not be used to independently start, stop, or modify medication.
+
+## Future Enhancements
+
+* Improve medical document coverage and quality
+* Add multilingual support
+* Improve retrieval accuracy
+* Add source references to generated responses
+* Implement stronger response validation
+* Add user authentication
+* Develop a web/mobile deployment
+* Improve medical-shop inventory management
+* Add structured medicine and prescription information
+
+## Project Documentation
+
+The project documentation is included in:
+
+```text
+Lab Poject Document.pdf
+```
+
+It contains additional information about the project, implementation, and system design.
+
+## Contributors
+
+Sahithi
+
+
+## Acknowledgements
+
+This project was developed as an academic project to explore Retrieval-Augmented Generation, semantic search, vector databases, and AI-assisted healthcare information retrieval.
+
+## Repository
+
+GitHub Repository:
+
+[https://github.com/USahu25/Medical-Prescription-Guidance](https://github.com/USahu25/Medical-Prescription-Guidance)
+
 
